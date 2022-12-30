@@ -20,6 +20,10 @@ export const Approutes: Routes = [
       {
         path: 'component',
         loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
+      },
+      {
+        path:'rxjs',
+        loadChildren:()=>import('../modules/rxjs/rxjs-routing.module').then(m=> m.RxjsRoutingModule)
       }
     ]
   },
