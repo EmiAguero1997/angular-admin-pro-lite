@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { forkJoin, interval, Observable, Subscription } from 'rxjs';
-import { retry, take, map, filter, switchMap } from 'rxjs/operators';
+import { interval, Observable, Subscription } from 'rxjs';
+import { take, map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs-view',
