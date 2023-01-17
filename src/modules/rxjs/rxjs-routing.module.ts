@@ -5,6 +5,7 @@ import { RxjsViewComponent } from './containers/rxjs-view/rxjs-view.component';
 const routes: Routes = [
   {
     path:'',
+    pathMatch:'full',
     redirectTo:'rxjs'
   },
   {
