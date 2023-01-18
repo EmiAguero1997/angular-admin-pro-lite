@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BehaviourService } from '../../services/behaviour.service';
 import { interval, Observable, Subscription } from 'rxjs';
 import { take, map, filter } from 'rxjs/operators';
 
@@ -14,8 +15,10 @@ export class RxjsViewComponent implements OnInit, OnDestroy {
   pokemons:any;
   pokemons2:any = [];
   subs:Subscription[]=[];
+  data$:Observable<any>;
 
-  constructor(private _http:HttpClient) {
+  constructor(private _http:HttpClient, private behaviourService:BehaviourService) {
+    this.data$ = this.behaviourService.getShareData;
     this.getPokemons().subscribe({
       next:response=>{
         this.pokemons = response.results;
@@ -98,6 +101,10 @@ export class RxjsViewComponent implements OnInit, OnDestroy {
     //return the promise
 
     return promise;
+  }
+
+  changeBehaviour(){
+    this.behaviourService.setShareData = {name:'i have changed'};
   }
 
 }
